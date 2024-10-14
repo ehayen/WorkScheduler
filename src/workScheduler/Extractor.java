@@ -18,7 +18,6 @@ public class Extractor
 	private ArrayList<String> rawHours;
 	private ArrayList<String> department;
 	private ArrayList<String> workers;
-	private Map<String, String> workersMap;
 	private String[][] processedHours;
 	private Map<String, Map<String, Map<String, String[][]>>> schedule;
 	
