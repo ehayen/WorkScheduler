@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>930</y>
+      <w>410</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>PDFParser
+--
+- documentData: String[]
+- rawHours : ArrayList&lt;String&gt;
+- department : ArrayList&lt;String&gt;
+- workers : ArrayList&lt;String&gt;
+- processedHours : String [][]
+- schedule : Map&lt;String, Map&lt;String, Map&lt;String, String[][]&gt;&gt;&gt;
+--
++ parsePDF() : void
++ getWorkers() : void
++ getHoursAndDepartment() : void
++ processHours() : void
++ combineData() : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>680</y>
+      <w>230</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Employee
+--
+- name : String
+- department : String
+- startTime : double
+- endTime : double
+--
++ getDepartment() : String
++ getStartTime() : double
++ getEndTime() : double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>440</y>
+      <w>260</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Schedule
+--
+- date : LocalDate
+- employees : Employee []
+- departments : String []
+--
++ getDate() : LocalDate
++ getDepartments() : String []
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>240</y>
+      <w>240</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>ScheduleBuilder
+--
+- schedule : Schedule
+- salesData : SalesData
+--
++ createSchedule() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1260</x>
+      <y>930</y>
+      <w>210</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>ExcelParser
+--
+- salesData : double[]
+--
++ parseFile() : void
++ processData(): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1230</x>
+      <y>480</y>
+      <w>250</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>SalesData
+--
+- sales : double
+- conversion : double
+- scoreCard : double
+- budget : double
+- upt : double
+- nspp : double
+- comp : double
+- aveSale : double
+- scoremore : double
+--
++ getSales() : double
++ getConversion() : double
++ getScoreCard() : double
++ getBudget() : double
++ getUpt() : double
++ getNSPP() : double
++ getComp() : double
++ getAveSale() : double
++ getScoremore() : double
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>60</y>
+      <w>240</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>DailyLineup
+--
+- scheduleBuilder : ScheudleBuilder
+--
+- createFileInputPanel() : void
+- createOpenFilePanel() : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1190</x>
+      <y>300</y>
+      <w>180</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;180.0;160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>300</y>
+      <w>190</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>590</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1070</x>
+      <y>160</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
