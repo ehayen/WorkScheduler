@@ -12,7 +12,7 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
-public class Extractor
+public class PDFParser
 {
 	private String[] documentData;
 	private ArrayList<String> rawHours;
@@ -21,19 +21,19 @@ public class Extractor
 	private String[][] processedHours;
 	private Map<String, Map<String, Map<String, String[][]>>> schedule;
 	
-	public Extractor()
+	public PDFParser()
 	{
 		schedule = new HashMap<String, Map<String, Map<String, String[][]>>>();
 		parsePDF();
-		getWorkers();
-		getHoursAndDepartment();
+		setWorkers();
+		setHoursAndDepartment();
 		processHours();
 		combine();
 	}
 	
 	public static void main(String args[])
 	{
-		new Extractor();
+		new PDFParser();
 	}
 	
 	public void parsePDF()
@@ -73,7 +73,7 @@ public class Extractor
 		this.documentData = textArray;
 	}
 	
-	public void getWorkers()
+	public void setWorkers()
 	{
 		ArrayList<String> workers = new ArrayList<>();
 		
@@ -94,7 +94,7 @@ public class Extractor
 		this.workers = workers;
 	}
 	
-	public void getHoursAndDepartment()
+	public void setHoursAndDepartment()
 	{
 		rawHours = new ArrayList<>();
 		department = new ArrayList<>();
@@ -154,10 +154,42 @@ public class Extractor
 				}	
 		}
 		
-		String s = schedule.toString();
-		String[] r = s.split(",");
-		for(String q:r)
-			System.out.println(q);
+//		String s = schedule.toString();
+//		String[] r = s.split(",");
+//		for(String q:r)
+//			System.out.println(q);
+	}
+ 
+	public String[] getWorkers()
+	{
+		String[] employees = new String[workers.size()];
+		for (int i=0; i<workers.size(); i++)
+		{
+			employees[i] = workers.get(i);
+		}
+		return employees;
 	}
 
+	public String[][] getHours()
+	{
+		String[][] hours = new String[processedHours.length][2];
+		for (int i=0; i<processedHours.length; i++)
+		{
+			for (int j=0; j<2; j++)
+			{
+				hours[i][j] = processedHours[i][j];
+			}
+		}
+		return hours;
+	}
+	
+	public String[] getDepartments()
+	{
+		String[] departments = new String[department.size()];
+		for (int i=0; i<department.size(); i++)
+		{
+			departments[i] = department.get(i);
+		}
+		return departments;
+	}
 }
