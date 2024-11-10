@@ -9,7 +9,7 @@ public class ScheduleBuilder
 		PDFParser p = new PDFParser();
 		String[] d = p.getDepartments();
 		String[] e = p.getWorkers();
-		String[][] h = p.getHours();
+		int[][] h = p.getHours();
 		schedule = new Schedule();
 		
 		schedule.setDepartments(d);
@@ -24,6 +24,8 @@ public class ScheduleBuilder
 			employee.setEndTime(h[i][1]);
 			schedule.addEmployee(employee);
 		}
+		
+		Spreadsheet spreadsheet = new Spreadsheet(schedule);
 		
 	}
 	

@@ -28,4 +28,14 @@ public class Schedule
 	{
 		this.date = date;
 	}
+	
+	public int getNumberOfEmployees()
+	{
+		return employees.size();
+	}
+	
+	protected Employee getEmployee(int i)
+	{
+		return employees.get(i);
+	}
 }

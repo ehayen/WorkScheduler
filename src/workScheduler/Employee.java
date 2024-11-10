@@ -7,8 +7,8 @@ public class Employee
 {
 	private String name;
 	private String department;
-	private double startTime;
-	private double endTime;
+	private int startTime;
+	private int endTime;
 	
 	public Employee()
 	{
@@ -25,13 +25,33 @@ public class Employee
 		this.department = department;
 	}
 	
-	public void setStartTime(String start)
+	public void setStartTime(int start)
 	{
-		this.startTime = Double.parseDouble(start);
+		startTime = start;
 	}
 	
-	public void setEndTime(String end)
+	public void setEndTime(int end)
 	{
-		this.endTime = Double.parseDouble(end);
+		endTime = end;
+	}
+	
+	public String getDepartment()
+	{
+		return department;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public int getStartTime()
+	{
+		return startTime;
+	}
+	
+	public int getEndTime()
+	{
+		return endTime;
 	}
 }

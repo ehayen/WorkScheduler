@@ -18,17 +18,17 @@ public class PDFParser
 	private ArrayList<String> rawHours;
 	private ArrayList<String> department;
 	private ArrayList<String> workers;
-	private String[][] processedHours;
-	private Map<String, Map<String, Map<String, String[][]>>> schedule;
+	private int[][] processedHours;
+	//private Map<String, Map<String, Map<String, String[][]>>> schedule;
 	
 	public PDFParser()
 	{
-		schedule = new HashMap<String, Map<String, Map<String, String[][]>>>();
+		//schedule = new HashMap<String, Map<String, Map<String, String[][]>>>();
 		parsePDF();
 		setWorkers();
 		setHoursAndDepartment();
 		processHours();
-		combine();
+		//combine();
 	}
 	
 	public static void main(String args[])
@@ -116,11 +116,12 @@ public class PDFParser
 	public void processHours()
 	{
 		int DIMENSION = rawHours.size();
-		processedHours = new String[DIMENSION][2];
+		processedHours = new int[DIMENSION][2];
+		String [][] preProcessedHours = new String[DIMENSION][2];
 		
 		for (int i=0; i<DIMENSION; i++)
 		{
-			processedHours[i] = rawHours.get(i).split("-");
+			preProcessedHours[i] = rawHours.get(i).split("-");
 		}
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mma");
@@ -129,36 +130,36 @@ public class PDFParser
 		{
 			for (int j=0; j<2; j++)
 			{
-				LocalTime time = LocalTime.parse(processedHours[i][j], formatter);
-				double t = time.getHour() + ((double)time.getMinute()/60);
-				processedHours[i][j] = Double.toString(t);
+				LocalTime time = LocalTime.parse(preProcessedHours[i][j], formatter);
+				int t = time.getHour()*60 + time.getMinute();
+				processedHours[i][j] = t;
 			}
 		}
 	}
 
-	public void combine()
-	{
-		for (int i=0; i< workers.size(); i++)
-		{
-				Map<String, String[][]> hoursMap = new HashMap<>();
-				hoursMap.put("Hours", processedHours);
-				Map<String, Map<String, String[][]>> workersHoursMap = new HashMap<>();
-				workersHoursMap.put(workers.get(i), hoursMap);
-				if (schedule == null || !schedule.containsKey(department.get(i)))
-				{
-					schedule.put(department.get(i), workersHoursMap);
-				}
-				else
-				{
-					schedule.get(department.get(i)).put(workers.get(i), hoursMap);
-				}	
-		}
+//	public void combine()
+//	{
+//		for (int i=0; i< workers.size(); i++)
+//		{
+//				Map<String, String[][]> hoursMap = new HashMap<>();
+//				hoursMap.put("Hours", processedHours);
+//				Map<String, Map<String, String[][]>> workersHoursMap = new HashMap<>();
+//				workersHoursMap.put(workers.get(i), hoursMap);
+//				if (schedule == null || !schedule.containsKey(department.get(i)))
+//				{
+//					schedule.put(department.get(i), workersHoursMap);
+//				}
+//				else
+//				{
+//					schedule.get(department.get(i)).put(workers.get(i), hoursMap);
+//				}	
+//		}
 		
 //		String s = schedule.toString();
 //		String[] r = s.split(",");
 //		for(String q:r)
 //			System.out.println(q);
-	}
+//	}
  
 	public String[] getWorkers()
 	{
@@ -170,9 +171,9 @@ public class PDFParser
 		return employees;
 	}
 
-	public String[][] getHours()
+	public int[][] getHours()
 	{
-		String[][] hours = new String[processedHours.length][2];
+		int[][] hours = new int[processedHours.length][2];
 		for (int i=0; i<processedHours.length; i++)
 		{
 			for (int j=0; j<2; j++)

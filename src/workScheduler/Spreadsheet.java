@@ -18,6 +18,7 @@ public class Spreadsheet
 {
 	XSSFWorkbook wb;
 	XSSFSheet sheet;
+	Schedule schedule;
 	
 	private final int sheetColumnWidth = 81;
 	
@@ -37,14 +38,15 @@ public class Spreadsheet
 	}
 	
 	
-	public Spreadsheet()
+	public Spreadsheet(Schedule schedule)
 	{
+		this.schedule = schedule;
 		wb = new XSSFWorkbook();
 		sheet = wb.createSheet("Sheet 1");
 		
 		createHeader();
 		
-		createOutline();
+		addDepartment("Team Sports");
 		
 		try
 		{
@@ -86,28 +88,67 @@ public class Spreadsheet
 		}
 	}
 
-	public void createOutline()
+	public void addDepartment(String department)
 	{
 		String [] timeSlots = {"4am", "5am", "6am", "7am","8am", "9am", "10am", 
 								"11am","12pm", "1pm", "2pm", "3pm","4pm", "5pm", 
 								 "6pm", "7pm","8pm", "9pm", "10pm", "11pm"};
 		
-		for (int i=3; i<20; i++)
+		Row row = sheet.createRow(3);
+		row.createCell(0).setCellValue(department);
+		for (int i=1; i<sheetColumnWidth; i++)
 		{
-			Row row = sheet.createRow(i);
-			row.createCell(0).setCellValue("department");
-			for (int j=1; j<sheetColumnWidth; j++)
+			row.createCell(i);
+			if (i%4 == 0)
 			{
-				row.createCell(j);
-				if (j%4 == 0)
-				{
-					sheet.addMergedRegion(new CellRangeAddress(i,i,j-3,j));
-					Cell mergedCell = row.getCell(j-3);
-					mergedCell.setCellValue(timeSlots[j/4-1]);
-				}
+				sheet.addMergedRegion(new CellRangeAddress(3,3,i-3,i));
+				Cell mergedCell = row.getCell(i-3);
+				mergedCell.setCellValue(timeSlots[i/4-1]);
 			}
-			
 		}
+		
+		int numberOfEmployees = schedule.getNumberOfEmployees();
+		int counter = 4;
+		
+		XSSFCellStyle shaded = wb.createCellStyle();
+		shaded.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
+		shaded.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		
+		for (int i=0; i < numberOfEmployees-1; i++)
+		{
+			Employee e = schedule.getEmployee(i);
+			if (e.getDepartment().equalsIgnoreCase(department))
+			{
+				Row employeeRow = sheet.createRow(counter++);
+				employeeRow.createCell(0).setCellValue(e.getName());
+				
+				// calculate shaded cells coresponding to the time frames
+				int start = e.getStartTime() / 15 - 16;
+				int end = e.getEndTime() / 15 - 16;
+				
+				
+				
+				for (int c=1; c < sheetColumnWidth; c++)
+				{
+					Cell timeCell = employeeRow.createCell(c);
+					if (c > start && c < end)
+					{
+						timeCell.setCellStyle(shaded);
+					}
+				}
+				
+				System.out.println("Start:" + start + " End:" + end);
+				
+				
+//				for (int j=1; i<sheetColumnWidth; j++)
+//				{
+//					
+//				}
+			}
+		}
+		
+		
+		
 	}
 
 
