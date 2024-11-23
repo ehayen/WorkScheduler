@@ -3,6 +3,7 @@ package workScheduler;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+
 public class Schedule
 {
 	private String date;
@@ -21,8 +22,22 @@ public class Schedule
 	
 	public void setDepartments(String[] departments)
 	{
-		this.departments = departments;
-	}
+		ArrayList<String> departmentList = new ArrayList<>();
+		for (String department : departments)
+		{
+			boolean isIn = false;
+			for (String s : departmentList)
+			{
+				if (s.equalsIgnoreCase(department))
+					isIn = true;
+			}
+			if (!isIn)
+			{
+				departmentList.add(department);
+			}
+		}
+		this.departments = departmentList.toArray(new String[0]);
+}
 	
 	public void setDate(String date)
 	{
@@ -37,5 +52,16 @@ public class Schedule
 	protected Employee getEmployee(int i)
 	{
 		return employees.get(i);
+	}
+	
+	public String[] getDepartments()
+	{
+		String[] returnDepartments = new String[departments.length];
+		for (int i=0; i<departments.length; i++)
+		{
+			returnDepartments[i] = departments[i];
+		}
+		
+		return returnDepartments;
 	}
 }
