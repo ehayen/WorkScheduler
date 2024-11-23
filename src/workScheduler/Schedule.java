@@ -36,6 +36,9 @@ public class Schedule
 				departmentList.add(department);
 			}
 		}
+		
+		departmentList.sort(String::compareToIgnoreCase);
+		
 		this.departments = departmentList.toArray(new String[0]);
 }
 	
