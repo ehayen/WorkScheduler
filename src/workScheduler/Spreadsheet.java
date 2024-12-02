@@ -8,6 +8,7 @@ package workScheduler;
 
 import org.apache.poi.xssf.usermodel.*;
 
+import java.awt.Desktop;
 import java.io.*;
 
 import org.apache.poi.ss.usermodel.*;
@@ -19,6 +20,7 @@ public class Spreadsheet
 	XSSFWorkbook wb;
 	XSSFSheet sheet;
 	Schedule schedule;
+	File file;
 	int rowCount;
 
 	private final int sheetColumnWidth = 81;
@@ -26,6 +28,7 @@ public class Spreadsheet
 	public Spreadsheet(Schedule schedule)
 	{
 		this.schedule = schedule;
+		
 		wb = new XSSFWorkbook();
 		sheet = wb.createSheet("Sheet 1");
 		rowCount = 3;
@@ -227,6 +230,20 @@ public class Spreadsheet
 	public int getNextRow()
 	{
 		return rowCount++;
+	}
+	
+	public static void openFile()
+	{
+		File scheduleFile = new File("test.xlsx");
+		try
+		{
+			Desktop.getDesktop().open(scheduleFile);
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

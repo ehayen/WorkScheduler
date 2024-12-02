@@ -14,6 +14,7 @@ import java.time.format.DateTimeFormatter;
 
 public class PDFParser
 {
+	private File file;
 	private String[] documentData;
 	private ArrayList<String> rawHours;
 	private ArrayList<String> department;
@@ -21,8 +22,10 @@ public class PDFParser
 	private int[][] processedHours;
 	//private Map<String, Map<String, Map<String, String[][]>>> schedule;
 	
-	public PDFParser()
+	public PDFParser(File file)
 	{
+		this.file = file;
+		
 		//schedule = new HashMap<String, Map<String, Map<String, String[][]>>>();
 		parsePDF();
 		setWorkers();
@@ -31,19 +34,14 @@ public class PDFParser
 		//combine();
 	}
 	
-	public static void main(String args[])
-	{
-		new PDFParser();
-	}
-	
 	public void parsePDF()
 	{
-		String filePath = "exampleSchedule.pdf";
+		//String filePath = "exampleSchedule.pdf";
 		PDDocument document = null;
 		
 		try
 		{
-			document = Loader.loadPDF(new File(filePath));
+			document = Loader.loadPDF(file);
 		}
 		catch (IOException e)
 		{

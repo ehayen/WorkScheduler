@@ -1,12 +1,14 @@
 package workScheduler;
 
+import java.io.File;
+
 public class ScheduleBuilder
 {
 	private Schedule schedule;
 	
-	public ScheduleBuilder()
+	public ScheduleBuilder(File file)
 	{
-		PDFParser p = new PDFParser();
+		PDFParser p = new PDFParser(file);
 		String[] d = p.getDepartments();
 		String[] e = p.getWorkers();
 		int[][] h = p.getHours();
@@ -29,8 +31,8 @@ public class ScheduleBuilder
 		
 	}
 	
-	public static void main(String[] args)
-	{
-		new ScheduleBuilder();
-	}
+//	public static void main(String[] args)
+//	{
+//		new ScheduleBuilder();
+//	}
 }
