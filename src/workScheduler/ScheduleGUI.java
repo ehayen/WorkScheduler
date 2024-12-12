@@ -6,10 +6,17 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 
 public class ScheduleGUI extends JFrame
 {
-	JButton openScheduleButton;
+	private JButton openScheduleButton;
+	private JTextField fileDisplay;
+	private JFileChooser fc;
+	private JButton selectFileButton;
+	private Color color = Color.decode("#006756");
+	private int WIDTH = 300;
+	JPanel mainPanel;
 	
 	
 	public static void main(String agrgs[])
@@ -19,35 +26,89 @@ public class ScheduleGUI extends JFrame
 	
 	public ScheduleGUI()
 	{
-		int WIDTH = 650;
-		int HEIGHT = 500;
-		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(WIDTH, HEIGHT);
 		this.setLocationRelativeTo(null);
-		this.setTitle("Schedul Creator");
-		this.setLayout(new GridLayout(4,1));
+		this.setTitle("Daily Lineup");
+		this.setLayout(new BorderLayout());
 		
-		JLabel fieldLabel = new JLabel("File");
-		this.add(fieldLabel);
+		mainPanel = new JPanel();
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		
-		JTextField fileDisplay = new JTextField();
-		this.add(fileDisplay);
+		JPanel logoPanel = new JPanel();
+		JLabel logo = new JLabel();
 		
-		JFileChooser fc = new JFileChooser();
+		ImageIcon logoIcon = new ImageIcon(new ImageIcon("dicks-sporting-goods-logo.jpg").getImage().getScaledInstance(WIDTH, 150, Image.SCALE_DEFAULT));
 		
-		JButton selectFileButton = new JButton("Create Schedule");
+		logo.setIcon(logoIcon);
+		logoPanel.add(logo);
+		mainPanel.add(logoPanel);
+		
+		
+		fileDisplay = new JTextField();
+		fileDisplay.setEditable(false);
+		fileDisplay.setFocusable(false);
+		mainPanel.add(fileDisplay);
+		
+		
+		createCreateScheduleButtonPanel();
+		
+		
+		createOpenScheduleButtonPanel();
+		
+	
+		this.add(mainPanel, BorderLayout.CENTER);
+		this.pack();
+		this.setVisible(true);
+	}
+	
+	private void createCreateScheduleButtonPanel()
+	{
+		JPanel p = new JPanel(new GridBagLayout());
+		JPanel q = new JPanel();
+		
+		p.setBackground(color);
+		q.setBackground(color);
+		p.setSize(WIDTH, 100);
+		q.setSize(WIDTH/2, 50);
+		
+		
+		fc = new JFileChooser(new File(System.getProperty("user.dir")));
+		selectFileButton = new JButton("Create Schedule");
 		selectFileButton.addActionListener(new CreateScheduleButtonListener(fc, fileDisplay));
-		this.add(selectFileButton);
+		
+		q.add(selectFileButton);
+		p.add(q);
+		
+		mainPanel.add(p);
+	}
+	
+	private void createLogoPanel()
+	{
+		
+	}
+	
+	private void createOpenScheduleButtonPanel()
+	{
+		JPanel p = new JPanel(new GridBagLayout());
+		JPanel q = new JPanel();
+		
+		p.setBackground(color);
+		q.setBackground(color);
+		p.setSize(WIDTH, 100);
+		q.setSize(WIDTH/2, 50);
+		
+		
 		
 		openScheduleButton = new JButton("Open Schedule");
 		openScheduleButton.setEnabled(false);
 		openScheduleButton.addActionListener(new OpenScheduleButtonListener());
-		this.add(openScheduleButton);
-	
 		
-		this.setVisible(true);
+		q.add(openScheduleButton);
+		p.add(q);
+		
+		mainPanel.add(p);
 	}
+	
 	
 	private class CreateScheduleButtonListener implements ActionListener
 	{
@@ -82,6 +143,7 @@ public class ScheduleGUI extends JFrame
 		public void actionPerformed(ActionEvent e)
 		{
 			Spreadsheet.openFile();
+			openScheduleButton.setEnabled(false);
 		}
 		
 	}
