@@ -12,6 +12,21 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 
 /**
+ * Lead Author(s):
+ * @author Eric Hayen
+
+ * References:
+ * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
+ * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * Other Resources:
+ * https://javadoc.io/doc/org.apache.pdfbox/pdfbox/latest/index.html
+ * https://www.tutorialspoint.com/pdfbox/pdfbox_reading_text.htm
+ * 
+ * Version/date: V 1.0 	December 16, 2024
+ */
+
+/**
  * This class accepts a PDF file of a schedule for Dick's Sporting Goods and
  * processes the information in it. This class uses regular expressions and
  * contains methods to find relevant schedule data such as the schedule date,
@@ -82,9 +97,6 @@ public class PDFParser
 			// throw exception if there is an issue with loading the file
 			throw new WrongFileException();
 		}
-
-		// for (int i=0; i<textArray.length; i++)
-		// System.out.println(i + ": " + textArray[i]);
 	}
 
 	/**

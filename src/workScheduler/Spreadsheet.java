@@ -1,11 +1,5 @@
 package workScheduler;
 
-/*
- * Used this site as an example for how to begin using POI
- * https://www.codejava.net/coding/how-to-write-excel-files-in-java-using-apache
- * -poi
- */
-
 import org.apache.poi.xssf.usermodel.*;
 
 import java.awt.Desktop;
@@ -14,6 +8,24 @@ import java.io.*;
 import org.apache.poi.ss.usermodel.*;
 
 import org.apache.poi.ss.util.*;
+
+/**
+ * Lead Author(s):
+ * @author Eric Hayen
+
+ * References:
+ * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
+ * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * Other Resources:
+ * https://poi.apache.org/apidocs/5.0/
+ * https://www.codejava.net/coding/how-to-write-excel-files-in-java-using-apache-poi
+ * https://howtodoinjava.com/java/library/readingwriting-excel-files-in-java-poi-tutorial/
+ * https://stackoverflow.com/questions/18716032/merging-cells-in-excel-using-apache-poi
+ * https://poi.apache.org/apidocs/dev/org/apache/poi/ss/usermodel/CellStyle.html
+ * 
+ * Version/date: V 1.0 	December 16, 2024
+ */
 
 /**
  * This class is used to create an Excel spreadsheet of a daily schedule for

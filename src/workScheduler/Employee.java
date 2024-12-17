@@ -1,5 +1,18 @@
 package workScheduler;
 
+/**
+ * Lead Author(s):
+ * @author Eric Hayen
+
+ * References:
+ * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
+ * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * Other Resources:
+ * 
+ * Version/date: V 1.0 	December 16, 2024
+ */
+
 public class Employee
 {
 	private String name;			// HAS-A name

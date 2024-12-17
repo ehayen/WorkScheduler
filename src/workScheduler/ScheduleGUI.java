@@ -5,8 +5,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import javax.swing.*;
+
+/**
+ * Lead Author(s):
+ * @author Eric Hayen
+
+ * References:
+ * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
+ * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * Other Resources:
+ * https://www.geeksforgeeks.org/java-awt-boxlayout-class/
+ * 
+ * Version/date: V 1.0 	December 16, 2024
+ */
 
 /**
  * This class acts as an interface for a user to create a schedule of employees.

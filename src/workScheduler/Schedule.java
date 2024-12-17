@@ -3,6 +3,20 @@ package workScheduler;
 import java.util.ArrayList;
 
 /**
+ * Lead Author(s):
+ * @author Eric Hayen
+
+ * References:
+ * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
+ * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * Other Resources:
+ * https://www.geeksforgeeks.org/arraylist-array-conversion-java-toarray-methods/
+ * 
+ * Version/date: V 1.0 	December 16, 2024
+ */
+
+/**
  * This class models a schedule for Dick's Sporting Goods. This schedule has a
  * date, many employees, and an array of departments. This class provides
  * methods to add employees and to set the date and departments of the schedule.
@@ -62,7 +76,7 @@ public class Schedule
 		departmentList.sort(String::compareToIgnoreCase);
 
 		// convert departments to an array, stores in instance variable
-		this.departments = departmentList.toArray(new String[0]);
+		this.departments = departmentList.toArray(new String[departmentList.size()]);
 	}
 
 	/**

@@ -3,6 +3,19 @@ package workScheduler;
 import java.io.File;
 
 /**
+ * Lead Author(s):
+ * @author Eric Hayen
+
+ * References:
+ * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
+ * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * Other Resources:
+ * 
+ * Version/date: V 1.0 	December 16, 2024
+ */
+
+/**
  * This class handles the initialization of components necessary for parsing and creating an entire schedule.
  */
 public class ScheduleController
