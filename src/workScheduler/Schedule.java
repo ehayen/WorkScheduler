@@ -1,6 +1,5 @@
 package workScheduler;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -66,5 +65,10 @@ public class Schedule
 		}
 		
 		return returnDepartments;
+	}
+	
+	public String getDate()
+	{
+		return date;
 	}
 }
