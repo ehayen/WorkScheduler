@@ -21,12 +21,12 @@ import java.time.format.DateTimeFormatterBuilder;
  */
 public class PDFParser
 {
-	private File file; // HAS-AN input file
-	private String[] documentData; // HAS-AN array of data from the document
-	private ArrayList<String> rawHours; // HAS-AN array of shift times
-	private ArrayList<String> department; // HAS-AN array of departments
-	private ArrayList<String> workers; // HAS-AN array of employee names
-	private int[][] processedHours; // HAS-AN array of shift start/stop times
+	private File file; // HAS-A input file
+	private String[] documentData; // HAS-MANY strings of data from the document
+	private ArrayList<String> rawHours; // HAS-MANY shift times
+	private ArrayList<String> department; // HAS-MANY departments
+	private ArrayList<String> workers; // HAS-MANY employee names
+	private int[][] processedHours; // HAS-MANY shift start/stop times
 	private LocalDate date; // HAS-A date of the schedule
 
 	/**
@@ -197,7 +197,7 @@ public class PDFParser
 				LocalTime time = LocalTime.parse(preProcessedHours[i][j],
 						formatter);
 				// get the time of each element, time will be returned as on a 24-hour clock
-				// convert each time into an integer that represents both the hour and minute
+				// convert each time into an integer that represents the minutes of the day
 				int t = time.getHour() * 60 + time.getMinute();
 				// store the integer in the array
 				processedHours[i][j] = t;

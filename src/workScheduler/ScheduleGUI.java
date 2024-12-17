@@ -25,6 +25,7 @@ public class ScheduleGUI extends JFrame
 	private Color colorDSG = Color.decode("#006756"); // HAS-A specific color
 	private int WIDTH = 300; // HAS-A width
 	private int logoHeight = 150; // HAS-A logo height
+	private String saveFile = "test.xlsx"; // HAS-A file name to save to
 
 	public static void main(String agrgs[])
 	{
@@ -195,9 +196,9 @@ public class ScheduleGUI extends JFrame
 
 				try
 				{
-					// pass file to schedule controller and try to create a
-					// schedule
-					new ScheduleController(file);
+					// pass schedule file and file name to save as to schedule
+					// controller and try to create a schedule
+					new ScheduleController(file, saveFile);
 					// enable the button to open a created schedule
 					createScheduleButton.setEnabled(true);
 				}
@@ -239,12 +240,13 @@ public class ScheduleGUI extends JFrame
 			try
 			{
 				// try to open the created schedule
-				Spreadsheet.openFile();
+				Spreadsheet.openFile(saveFile);
 			}
 			// catch an exception where the file is unable to be opened
 			catch (FileNotFoundException e1)
 			{
-				// open a new option pane and display the exception message to the user
+				// open a new option pane and display the exception message to
+				// the user
 				JOptionPane.showMessageDialog(null, e1.getMessage());
 			}
 			finally

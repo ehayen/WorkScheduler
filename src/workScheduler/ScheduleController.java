@@ -10,10 +10,11 @@ public class ScheduleController
 	/**
 	 * Constructor
 	 * @param file the file of the schedule to be parsed
+	 * @param saveFile the name to save the schedule as
 	 * @throws WrongFileException if an incompatible file is passed in
 	 * @throws CannotWriteFileException if a schedule cannot be created and written to file
 	 */
-	public ScheduleController(File file) throws WrongFileException, CannotWriteFileException
+	public ScheduleController(File file, String saveFile) throws WrongFileException, CannotWriteFileException
 	{
 		// initialize PDFParser, pass in the schedule file
 		PDFParser p = new PDFParser(file);
@@ -48,6 +49,6 @@ public class ScheduleController
 		}
 		
 		// initialize a spreadsheet, pass the schedule to it
-		new Spreadsheet(schedule);
+		new Spreadsheet(schedule, saveFile);
 	}
 }
