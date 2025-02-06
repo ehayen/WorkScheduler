@@ -199,7 +199,7 @@ public class Spreadsheet
 		int numberOfEmployees = schedule.getNumberOfEmployees();
 
 		// iterate through the list of employees
-		for (int i = 0; i < numberOfEmployees - 0; i++)
+		for (int i = 0; i < numberOfEmployees; i++)
 		{
 			// get the employee in position i
 			Employee e = schedule.getEmployee(i);
