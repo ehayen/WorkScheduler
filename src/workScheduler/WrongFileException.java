@@ -18,6 +18,11 @@ package workScheduler;
  */
 public class WrongFileException extends Exception
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5610127374701748588L;
+
 	public WrongFileException()
 	{
 		super("This is not the correct file.");

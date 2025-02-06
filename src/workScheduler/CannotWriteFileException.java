@@ -18,6 +18,11 @@ package workScheduler;
  */
 public class CannotWriteFileException extends Exception
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3328154873499723019L;
+
 	public CannotWriteFileException()
 	{
 		super("Cannot write file. Ensure all current versions are closed.");

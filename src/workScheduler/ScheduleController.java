@@ -27,7 +27,7 @@ public class ScheduleController
 	 * @throws WrongFileException if an incompatible file is passed in
 	 * @throws CannotWriteFileException if a schedule cannot be created and written to file
 	 */
-	public ScheduleController(File file, String saveFile) throws WrongFileException, CannotWriteFileException
+	public ScheduleController(File file, File saveFile) throws WrongFileException, CannotWriteFileException
 	{
 		// initialize PDFParser, pass in the schedule file
 		PDFParser p = new PDFParser(file);

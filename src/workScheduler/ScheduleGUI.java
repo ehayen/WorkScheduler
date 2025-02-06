@@ -206,6 +206,18 @@ public class ScheduleGUI extends JFrame
 				File file = fileChooser.getSelectedFile();
 				// display selected file name in text field
 				fileDisplay.setText(file.getName());
+				
+				// Prompt user for where to save the output file
+	            JFileChooser saveChooser = new JFileChooser();
+	            saveChooser.setDialogTitle("Choose where to save the schedule");
+	            saveChooser.setSelectedFile(new File("schedule.xlsx")); // Default filename
+	            
+	            int saveValue = saveChooser.showSaveDialog(null);
+	            
+	            if (saveValue == JFileChooser.APPROVE_OPTION)
+	            {
+	                // Get the selected save location
+	                File saveFile = saveChooser.getSelectedFile();
 
 				try
 				{
@@ -214,6 +226,7 @@ public class ScheduleGUI extends JFrame
 					new ScheduleController(file, saveFile);
 					// enable the button to open a created schedule
 					createScheduleButton.setEnabled(true);
+					Toolkit.getDefaultToolkit().beep();
 				}
 				// if a user selects an incompatible file, display an error
 				// message
@@ -237,6 +250,7 @@ public class ScheduleGUI extends JFrame
 				}
 			}
 		}
+	}
 	}
 
 	/**

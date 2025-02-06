@@ -6,28 +6,14 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="Referenced Jars/commons-codec-1.15.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/commons-collections4-4.4.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/commons-compress-1.21.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/commons-io-2.11.0.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/commons-math3-3.6.1.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/curvesapi-1.07.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/jakarta.activation-2.0.1.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/jakarta.xml.bind-api-3.0.1.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/log4j-api-2.18.0.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/log4j-core-2.18.0.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/pdfbox-app-3.0.3.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/poi-5.2.3.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/poi-examples-5.2.3.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/poi-excelant-5.2.3.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/poi-javadoc-5.2.3.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/poi-ooxml-5.2.3.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/poi-ooxml-full-5.2.3.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/poi-ooxml-lite-5.2.3.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/poi-scratchpad-5.2.3.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/slf4j-api-1.7.36.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/SparseBitSet-1.2.jar"/>
-	<classpathentry kind="lib" path="Referenced Jars/xmlbeans-5.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="Referenced Jars/pdfbox-app-3.0.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="Referenced Jars/poi-ooxml-5.2.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="Referenced Jars/poi-ooxml-lite-5.2.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="Referenced Jars/log4j-api-2.18.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="Referenced Jars/log4j-core-2.18.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="Referenced Jars/commons-compress-1.21.jar"/>
+	<classpathentry exported="true" kind="lib" path="Referenced Jars/commons-collections4-4.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="Referenced Jars/poi-5.2.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="Referenced Jars/xmlbeans-5.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

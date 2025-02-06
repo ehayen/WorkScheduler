@@ -39,7 +39,6 @@ public class Spreadsheet
 	private XSSFWorkbook workBook; // HAS-A workbook
 	private XSSFSheet sheet; // HAS-A sheet
 	private Schedule schedule; // HAS-A Schedule
-	private String saveFile;	// HAS-A file to save to
 	private int rowCount = 0; // HAS-A row count
 
 	private final int sheetColumnWidth = 81; // HAS-A number of columns wide
@@ -50,7 +49,7 @@ public class Spreadsheet
 	 * @param schedule the Schedule the spreadsheet will be created from
 	 * @throws CannotWriteFileException if the file cannot be written
 	 */
-	public Spreadsheet(Schedule schedule, String saveFile) throws CannotWriteFileException
+	public Spreadsheet(Schedule schedule, File saveFile) throws CannotWriteFileException
 	{
 		// initialize schedule
 		this.schedule = schedule;
@@ -59,7 +58,6 @@ public class Spreadsheet
 		// initialize the sheet
 		sheet = workBook.createSheet("Sheet 1");
 		// initialize file name to save file to
-		this.saveFile = saveFile;
 
 		// create the header at the top of the lineup with title and date
 		createHeader();

@@ -97,6 +97,10 @@ public class PDFParser
 			// throw exception if there is an issue with loading the file
 			throw new WrongFileException();
 		}
+		for (int i=0; i<documentData.length; i++)
+		{
+			System.out.println(i + ": " + documentData[i]);
+		}
 	}
 
 	/**
@@ -300,7 +304,7 @@ public class PDFParser
 	{
 		// initialize a formatter to recognize a date pattern, set to case-insensitive
 		DateTimeFormatter f = new DateTimeFormatterBuilder()
-				.parseCaseInsensitive().appendPattern("EEEE, MMM dd, yyyy")
+				.parseCaseInsensitive().appendPattern("EEEE, MMM d, yyyy")
 				.toFormatter();
 
 		// Iterate through each element in the array
