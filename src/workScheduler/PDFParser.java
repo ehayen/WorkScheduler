@@ -97,10 +97,6 @@ public class PDFParser
 			// throw exception if there is an issue with loading the file
 			throw new WrongFileException();
 		}
-		for (int i=0; i<documentData.length; i++)
-		{
-			System.out.println(i + ": " + documentData[i]);
-		}
 	}
 
 	/**
@@ -215,6 +211,10 @@ public class PDFParser
 				// get the time of each element, time will be returned as on a 24-hour clock
 				// convert each time into an integer that represents the minutes of the day
 				int t = time.getHour() * 60 + time.getMinute();
+				if (time.getHour() == 0)
+				{
+					t+=24*60;
+				}
 				// store the integer in the array
 				processedHours[i][j] = t;
 			}

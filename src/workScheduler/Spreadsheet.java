@@ -199,7 +199,7 @@ public class Spreadsheet
 		int numberOfEmployees = schedule.getNumberOfEmployees();
 
 		// iterate through the list of employees
-		for (int i = 0; i < numberOfEmployees - 1; i++)
+		for (int i = 0; i < numberOfEmployees - 0; i++)
 		{
 			// get the employee in position i
 			Employee e = schedule.getEmployee(i);
@@ -438,15 +438,12 @@ public class Spreadsheet
 	 * Purpose: To open the file that was created from this object.
 	 * @throws FileNotFoundException if the file is unable to be opened
 	 */
-	public static void openFile(String saveFile) throws FileNotFoundException
+	public static void openFile(File saveFile) throws FileNotFoundException
 	{
-		// create a file object from the file that was saved
-		File scheduleFile = new File(saveFile);
-
 		try
 		{
 			// try to open the saved file
-			Desktop.getDesktop().open(scheduleFile);
+			Desktop.getDesktop().open(saveFile);
 		}
 		catch (IOException e)
 		{

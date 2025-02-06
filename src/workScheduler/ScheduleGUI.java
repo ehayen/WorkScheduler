@@ -38,7 +38,7 @@ public class ScheduleGUI extends JFrame
 	private Color colorDSG = Color.decode("#006756"); // HAS-A specific color
 	private int WIDTH = 300; // HAS-A width
 	private int logoHeight = 150; // HAS-A logo height
-	private String saveFile = "test.xlsx"; // HAS-A file name to save to
+	protected File saveFile;
 
 	public static void main(String agrgs[])
 	{
@@ -217,7 +217,7 @@ public class ScheduleGUI extends JFrame
 	            if (saveValue == JFileChooser.APPROVE_OPTION)
 	            {
 	                // Get the selected save location
-	                File saveFile = saveChooser.getSelectedFile();
+	                saveFile = saveChooser.getSelectedFile();
 
 				try
 				{
